@@ -24,8 +24,8 @@ var es6Extensions = ['.babel', '.es6'];
 function bundle(bundleName, bundler, opts) {
   opts = opts || {};
 
-  if (!opts.buildFolder) {
-    throw new Error('opts.buildFolder is required');
+  if (!opts.dest) {
+    throw new Error('opts.dest is required');
   }
 
   return bundler
@@ -37,34 +37,31 @@ function bundle(bundleName, bundler, opts) {
     .pipe(source(bundleName))
     .pipe(buffer())
     .pipe(gulpif(opts.minify, uglify()))
-    .pipe(vfs.dest(opts.buildFolder));
+    .pipe(vfs.dest(opts.dest));
 }
 
-function build(basePath, opts) {
+function fosify(opts) {
   opts = opts || {};
-  basePath = normalize(basePath);
 
-  if (!opts.buildFolder) {
-    throw new Error('opts.buildFolder is required');
+  if (!opts.host) {
+    throw new Error('opts.host is required');
   }
-  if (!opts.secureOrigin) {
-    throw new Error('opts.secureOrigin is required');
-  }
-  if (!opts.origin) {
-    opts.origin = opts.secureOrigin
-  }
+  var origin = 'http://' + opts.host;
+  var secureOrigin = 'https://' + (opts.secureHost || opts.host);
+  var source = normalize(opts.source || './');
+  var dest = opts.dest || './build';
 
-  var rootIndexRegex = RegExp(basePath + '/fosofile\.(js|es6|babel)');
+  var rootIndexRegex = RegExp(source + '/fosofile\.(js|es6|babel)');
   function getBundleName(filePath) {
     if (rootIndexRegex.test(filePath)) {
       return 'index.js'
     }
     var parts = filePath.split('/');
     var targetPath = parts.splice(0, parts.length - 1).join('/') + '.js';
-    return targetPath.replace(basePath + '/', '');
+    return targetPath.replace(source + '/', '');
   }
 
-  glob(basePath + '{/*/**/bundle,/fosofile}.{js,es6,babel}', function(err, files) {
+  glob(source + '{/*/**/bundle,/fosofile}.{js,es6,babel}', function(err, files) {
     files.forEach(function(file) {
       var bundleName = getBundleName(file);
 
@@ -73,9 +70,9 @@ function build(basePath, opts) {
         extensions: ['.js', '.json'].concat(es6Extensions),
         paths: [path.join(__dirname, './node_modules')]
       });
-      
+
       var redirOpts = {};
-      if(opts.env) {
+      if (opts.env) {
         redirOpts.suffix = '.' + opts.env;
       }
 
@@ -96,15 +93,18 @@ function build(basePath, opts) {
         .transform(replace, {
           replace: [{
             from: /__origin/,
-            to: '\'' + opts.origin + '\''
+            to: '\'' + origin + '\''
           }, {
             from: /__secureOrigin/,
-            to: '\'' + opts.secureOrigin + '\''
+            to: '\'' + secureOrigin + '\''
           }]
         });
 
       function rebundle() {
-        bundle(bundleName, bundler, opts);
+        bundle(bundleName, bundler, {
+          minify: opts.minify,
+          dest: dest
+        });
         console.log('bundled: ' + chalk.magenta(bundleName));
       }
 
@@ -115,4 +115,4 @@ function build(basePath, opts) {
   });
 }
 
-module.exports = build;
+module.exports = fosify;
