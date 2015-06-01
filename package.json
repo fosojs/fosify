@@ -41,6 +41,7 @@
     "normalize-path": "^1.0.0",
     "redirectify": "^1.4.0",
     "stringify": "^3.1.0",
+    "tiny-lr": "^0.1.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-fs": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
