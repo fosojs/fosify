@@ -22,4 +22,6 @@ function fosify(opts) {
   });
 }
 
-module.exports = fosify;
+exports = module.exports = fosify;
+
+exports.changed = livereload.changed;
