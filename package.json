@@ -1,6 +1,6 @@
 {
   "name": "fosify",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "A convention over configuration bundler that uses browserify to bundle the scripts.",
   "main": "index.js",
   "scripts": {
@@ -23,10 +23,12 @@
   },
   "homepage": "https://github.com/zkochan/fosify",
   "dependencies": {
+    "async": "^1.1.0",
     "babelify": "^6.1.1",
     "browserify": "^10.2.0",
     "browserify-replace": "^0.9.0",
     "chalk": "^1.0.0",
+    "gaze": "^0.5.1",
     "glob": "^5.0.6",
     "glob-watcher": "^2.0.0",
     "gulp-if": "^1.2.5",
@@ -34,7 +36,9 @@
     "jade": "^1.10.0",
     "jadeify": "^4.3.0",
     "lodash": "^3.8.0",
+    "mkdirp": "^0.5.1",
     "node-lessify": "0.0.10",
+    "node-sass": "^3.1.2",
     "normalize-path": "^1.0.0",
     "redirectify": "^1.4.0",
     "stringify": "^3.1.0",
