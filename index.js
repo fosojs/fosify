@@ -71,7 +71,7 @@ function build(basePath, opts) {
       var browserifyOpts = _.extend(opts.watch ? watchify.args : {}, {
         entries: [file],
         extensions: ['.js', '.json'].concat(es6Extensions),
-        paths: [path.join(__dirname, '../node_modules')]
+        paths: [path.join(__dirname, './node_modules')]
       });
       
       var redirOpts = {};
