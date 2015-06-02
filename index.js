@@ -13,7 +13,7 @@ function fosify(opts) {
   opts = opts || {};
 
   opts.source = normalize(opts.source || './');
-  opts.dest = path.join(currentPath, opts.dest || './build');
+  opts.dest = path.resolve(currentPath, opts.dest || './build');
 
   async.applyEachSeries([bundleScripts, bundleStyles], opts, function(err) {
     if (opts.livereload) {
