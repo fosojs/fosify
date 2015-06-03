@@ -1,4 +1,4 @@
-# fosify
+# fosify [![Dependency Status](https://david-dm.org/zkochan/fosify/status.svg?style=flat)](https://david-dm.org/zkochan/fosify) [![Build Status](https://travis-ci.org/zkochan/fosify.svg)](https://travis-ci.org/zkochan/fosify) [![npm version](https://badge.fury.io/js/fosify.svg)](http://badge.fury.io/js/fosify)
 
 ## Usage example
 
