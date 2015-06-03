@@ -12,7 +12,7 @@ function fosify(opts) {
 
   opts = opts || {};
 
-  opts.source = normalize(opts.source || './');
+  opts.src = normalize(opts.src || './');
   opts.dest = path.resolve(currentPath, opts.dest || './build');
 
   async.applyEachSeries([bundleScripts, bundleStyles], opts, function(err) {

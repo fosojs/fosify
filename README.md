@@ -6,7 +6,7 @@
 var fosify = require('fosify');
 
 fosify({
-  source: './public',
+  src: './public',
   dest: './build',
   host: 'example.com',
   secureHost: 'secure.example.com', //if not specified, host will be used for secure as well.

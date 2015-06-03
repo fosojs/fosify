@@ -3,7 +3,7 @@
 var fosify = require('../');
 
 fosify({
-  source: './scripts',
+  src: './scripts',
   dest: './build',
   host: 'example.com',
   secureHost: 'secure.example.com',
