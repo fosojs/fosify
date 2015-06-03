@@ -2,7 +2,8 @@
 
 var normalize = require('normalize-path');
 var bundleScripts = require('./lib/bundle-scripts');
-var bundleStyles = require('./lib/bundle-styles');
+var bundleSass = require('./lib/bundle-sass');
+var bundleLess = require('./lib/bundle-less');
 var async = require('async');
 var path = require('path');
 var livereload = require('./lib/livereload');
@@ -15,7 +16,10 @@ function fosify(opts) {
   opts.src = normalize(opts.src || './');
   opts.dest = path.resolve(currentPath, opts.dest || './build');
 
-  async.applyEachSeries([bundleScripts, bundleStyles], opts, function(err) {
+  async.applyEachSeries([
+    bundleScripts,
+    bundleSass,
+    bundleLess], opts, function(err) {
     if (opts.livereload) {
       livereload(opts);
     }

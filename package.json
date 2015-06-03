@@ -1,6 +1,6 @@
 {
   "name": "fosify",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A convention over configuration bundler that uses browserify to bundle the scripts.",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
     "gulp-uglify": "^1.2.0",
     "jade": "^1.10.0",
     "jadeify": "^4.3.0",
+    "less": "^2.5.1",
     "lodash": "^3.8.0",
     "mkdirp": "^0.5.1",
     "node-lessify": "0.0.10",
