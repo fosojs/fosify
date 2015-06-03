@@ -14,3 +14,8 @@ fosify({
   minify: true
 });
 ```
+
+License
+========
+
+The MIT License (MIT)
