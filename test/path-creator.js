@@ -14,4 +14,10 @@ describe('pathCreator', function() {
     var result = createPath('/home/foo/src/qar/bar/index.bundle.js');
     assert.equal(result, 'qar/bar/index.js');
   });
+
+  it('bundle taking part of file name and changing extension', function() {
+    var createPath = pathCreator.css('/home/foo/src');
+    var result = createPath('/home/foo/src/qar/bar/index.bundle.less');
+    assert.equal(result, 'qar/bar/index.css');
+  });
 });
