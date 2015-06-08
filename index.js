@@ -15,6 +15,8 @@ function fosify(opts) {
 
   opts.src = normalize(opts.src || './');
   opts.dest = path.resolve(currentPath, opts.dest || './build');
+  opts.ignore = opts.ignore || ['./**/node_modules/**',
+                                './**/bower_components/**'];
 
   async.applyEachSeries([
     bundleScripts,

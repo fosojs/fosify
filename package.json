@@ -1,6 +1,6 @@
 {
   "name": "fosify",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A convention over configuration bundler that uses browserify to bundle the scripts.",
   "main": "index.js",
   "scripts": {
@@ -50,5 +50,8 @@
   },
   "devDependencies": {
     "mocha": "^2.2.5"
+  },
+  "publishConfig":{
+    "registry": "http://registry.npmjs.org"
   }
 }
