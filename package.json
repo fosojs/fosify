@@ -49,9 +49,10 @@
     "watchify": "^3.2.1"
   },
   "devDependencies": {
+    "gulp-header": "^1.2.2",
     "mocha": "^2.2.5"
   },
-  "publishConfig":{
+  "publishConfig": {
     "registry": "http://registry.npmjs.org"
   }
 }
