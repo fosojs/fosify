@@ -1,6 +1,6 @@
 {
   "name": "fosify",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A convention over configuration bundler that uses browserify to bundle the scripts.",
   "main": "index.js",
   "scripts": {
