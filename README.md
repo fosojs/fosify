@@ -2,11 +2,13 @@
 
 A convention over configuration bundler that uses browserify to bundle resources.
 
+
 ## Installation
 
 ```
 npm install fosify
 ```
+
 
 ## Why not Gulp?
 
@@ -17,6 +19,14 @@ Gulp is a great task runner and has many libraries for bundling JavaScript and s
 * Watches for changes in the source files and rebundles them on change.
 * Starts a LiveReload server that will reload the browser each time a bundle was updated.
 
+
+## Available plugins
+
+* [Fosify JS](https://github.com/zkochan/fosify-js)
+* [Fosify Less](https://github.com/zkochan/fosify-less)
+* [Fosify Sass](https://github.com/zkochan/fosify-sass)
+
+
 ## Why is it convention over configuration?
 
 When using vanilla Browserify, each JavaScript file that has to be bundled needs to be specified. Fosify will bundle 2 types of JavaScript files:
@@ -26,10 +36,12 @@ When using vanilla Browserify, each JavaScript file that has to be bundled needs
 
 The same conventions work for the less and sass/scss files.
 
+
 ## Usage example
 
 ``` js
 var fosify = require('fosify');
+var less = require('fosify-less');
 
 fosify({
   src: './public',
@@ -38,8 +50,11 @@ fosify({
   secureHost: 'secure.example.com', //if not specified, host will be used for secure as well.
   watch: true,
   minify: true
-});
+})
+.plugin(less)
+.bundle();
 ```
+
 
 License
 ========

@@ -2,7 +2,7 @@
   "name": "fosify",
   "version": "0.4.0",
   "description": "A convention over configuration bundler that uses browserify to bundle the scripts.",
-  "main": "index.js",
+  "main": "./lib",
   "scripts": {
     "test": "mocha test/**/*.js"
   },
