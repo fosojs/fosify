@@ -1,14 +1,12 @@
 'use strict';
 
 var normalize = require('normalize-path');
-var bundleScripts = require('./lib/bundle-scripts');
-var bundleSass = require('./lib/bundle-sass');
-var bundleLess = require('./lib/bundle-less');
 var async = require('async');
 var path = require('path');
 var livereload = require('./lib/livereload');
+var _ = require('lodash');
 
-function fosify(opts) {
+function Fosify(opts) {
   var currentPath = path.resolve(process.cwd());
 
   opts = opts || {};
@@ -17,17 +15,32 @@ function fosify(opts) {
   opts.dest = path.resolve(currentPath, opts.dest || './build');
   opts.ignore = opts.ignore || ['./**/node_modules/**',
                                 './**/bower_components/**'];
+  this._opts = opts;
 
-  async.applyEachSeries([
-    bundleScripts,
-    bundleSass,
-    bundleLess], opts, function(err) {
-    if (opts.livereload) {
-      livereload(opts);
-    }
-  });
+  this._plugins = [];
 }
 
-exports = module.exports = fosify;
+Fosify.prototype.plugin = function(plugin) {
+  if (!plugin) {
+    throw new Error('plugin is required');
+  }
+  
+  this._plugins.push(plugin);
+  
+  return this;
+}
+
+Fosify.prototype.bundle = function(cb) {
+  async.applyEachSeries(this._plugins, this._opts, function(err) {
+    if (this._opts.livereload) {
+      var extensions = _.intersection(_.map(this._plugins, _.curryRight(_.get, 'extensions')));
+      livereload(this._opts, extensions);
+    }
+  }.bind(this));
+}
+
+exports = module.exports = function(opts) {
+  return new Fosify(opts);
+};
 
 exports.changed = livereload.changed;
