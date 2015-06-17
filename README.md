@@ -1,6 +1,6 @@
 # Fosify
 
-A convention over configuration bundler that uses browserify to bundle resources.
+A convention over configuration bundler.
 
 [![Dependency Status](https://david-dm.org/zkochan/fosify/status.svg?style=flat)](https://david-dm.org/zkochan/fosify) 
 [![Build Status](https://travis-ci.org/zkochan/fosify.svg)](https://travis-ci.org/zkochan/fosify)
