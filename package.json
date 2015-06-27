@@ -1,6 +1,6 @@
 {
   "name": "fosify",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "A util for creating/registering foso plugins.",
   "main": "./lib",
   "bin": {
@@ -10,6 +10,10 @@
   "scripts": {
     "test": "mocha test/**/*.js"
   },
+  "files": [
+    "bin",
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/fosojs/fosify.git"
