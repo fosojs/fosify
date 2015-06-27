@@ -1,36 +1,43 @@
 {
   "name": "fosify",
-  "version": "0.4.2",
-  "description": "A convention over configuration bundler that uses browserify to bundle the scripts.",
+  "version": "0.4.3",
+  "description": "A util for creating/registering foso plugins.",
   "main": "./lib",
+  "bin": {
+    "register": "bin/register.js",
+    "deregister": "bin/deregister.js"
+  },
   "scripts": {
     "test": "mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zkochan/fosify.git"
+    "url": "https://github.com/fosojs/fosify.git"
   },
   "keywords": [
     "foso",
     "fosify",
-    "bundler",
-    "browserify"
+    "bundler"
   ],
-  "author": "Zoltan Kochan",
+  "author": {
+    "name": "Zoltan Kochan",
+    "email": "zoltan.kochan@gmail.com",
+    "url": "http://kochan.io"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zkochan/fosify/issues"
+    "url": "https://github.com/fosojs/fosify/issues"
   },
-  "homepage": "https://github.com/zkochan/fosify",
+  "homepage": "https://github.com/fosojs/fosify",
   "dependencies": {
-    "async": "^1.1.0",
-    "gaze": "^0.5.1",
-    "lodash": "^3.8.0",
-    "normalize-path": "^1.0.0",
-    "tiny-lr": "^0.1.5"
+    "chalk": "^1.0.0",
+    "configstore": "^1.1.0",
+    "mkdirp": "^0.5.1",
+    "normalize-path": "^1.0.0"
   },
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "mockery": "^1.4.0"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
