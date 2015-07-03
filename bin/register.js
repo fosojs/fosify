@@ -15,10 +15,22 @@ if (!!process.env.npm_config_global) {
   var conf = new Configstore('foso', { plugins: [] });
   var plugins = conf.get('plugins');
 
-  plugins.push({
+  var newPlugin = {
     name: pkg.name,
     path: path.join(cwd, pkg.main)
+  };
+
+  var duplicates = plugins.filter(function(plugin) {
+    return plugin.name.toLowerCase() === newPlugin.name.toLowerCase() ||
+      plugin.path.toLowerCase() === newPlugin.path.toLowerCase();
   });
 
-  conf.set('plugins', plugins);
+  if (duplicates.length) {
+    console.log('Plugin already registered.');
+    console.log('Name: ' + duplicates[0].name);
+    console.log('Path: ' + duplicates[0].path);
+  } else {
+    plugins.push(newPlugin);
+    conf.set('plugins', plugins);
+  }
 }
