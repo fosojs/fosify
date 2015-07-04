@@ -1,6 +1,6 @@
 {
   "name": "fosify",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "A util for creating/registering foso plugins.",
   "main": "./lib",
   "bin": {
@@ -42,8 +42,7 @@
   },
   "devDependencies": {
     "chai": "^3.0.0",
-    "mocha": "^2.2.5",
-    "mockery": "^1.4.0"
+    "mocha": "^2.2.5"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
