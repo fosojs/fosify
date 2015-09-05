@@ -1,6 +1,6 @@
 {
   "name": "fosify",
-  "version": "0.4.9",
+  "version": "0.5.0",
   "description": "A util for creating/registering foso plugins.",
   "main": "./lib",
   "bin": {
