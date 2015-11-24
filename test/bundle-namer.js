@@ -29,4 +29,13 @@ describe('bundleNamer', function() {
     var result = createPath('/home/foo/src/qar/bar/index.bundle.less');
     assert.equal(result, 'qar/bar/index.css');
   });
+
+  it('bundle does\'t change the name of a not suffixed filename', function() {
+    var createPath = bundleNamer({
+      src: '/home/foo/src',
+      extension: 'css'
+    });
+    var result = createPath('/home/foo/src/qar/bar/index.less');
+    assert.equal(result, 'qar/bar/index.css');
+  });
 });
