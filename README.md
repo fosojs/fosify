@@ -1,5 +1,7 @@
 # fosify
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fosojs/fosify.svg)](https://greenkeeper.io/)
+
 A util for creating/registering foso plugins.
 
 [![Dependency Status](https://david-dm.org/fosojs/fosify/status.svg?style=flat)](https://david-dm.org/fosojs/fosify)
